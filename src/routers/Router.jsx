@@ -4,6 +4,10 @@ import RootLayout from "../layout/RootLayout";
 import Home from "../pages/Home";
 import Registration from "../pages/Registration";
 import Login from "../pages/Login";
+import AllProducts from "../pages/AllProducts";
+import MyProducts from "../pages/MyProducts";
+import Mybids from "../pages/Mybids";
+import CreateProduct from "../pages/CreateProduct";
 
 export const router = createBrowserRouter([
     {
@@ -15,12 +19,28 @@ export const router = createBrowserRouter([
                 Component: Home
             },
             {
-                path:"/registration",
-                Component:Registration
+                path: "/allProducts",
+                Component: AllProducts
             },
             {
-                path:"/login",
-                Component:Login
+                path: "/myProducts",
+                Component: MyProducts
+            },
+            {
+                path: "/myBids",
+                Component: Mybids
+            },
+            {
+                path: "/createProduct",
+                Component: CreateProduct
+            },
+            {
+                path: "/registration",
+                Component: Registration
+            },
+            {
+                path: "/login",
+                Component: Login
             }
         ]
     },

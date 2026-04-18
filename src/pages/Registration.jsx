@@ -24,10 +24,10 @@ const Registration = () => {
 
                         <button type="submit" className="w-full btn py-2 bg-primary text-white rounded font-semibold hover:opacity-90">Register</button>
 
-                        <p className="text-center text-gray-400">or</p>
+                        {/* <p className="text-center text-gray-400">or</p>
 
                         <button type="button" className="w-full btn py-2 border border-gray-300 rounded flex items-center justify-center gap-2 hover:bg-gray-50 hover:ring-1 hover:ring-purple-400">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" className="w-5 h-5" />Sign up with Google</button>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" className="w-5 h-5" />Sign up with Google</button> */}
 
                     </form>
 
