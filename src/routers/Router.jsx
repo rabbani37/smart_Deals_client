@@ -8,6 +8,7 @@ import AllProducts from "../pages/AllProducts";
 import MyProducts from "../pages/MyProducts";
 import Mybids from "../pages/Mybids";
 import CreateProduct from "../pages/CreateProduct";
+import PrivetRout from "./PrivetRout";
 
 export const router = createBrowserRouter([
     {
@@ -24,15 +25,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/myProducts",
-                Component: MyProducts
+                element: <PrivetRout> <MyProducts /> </PrivetRout>
             },
             {
                 path: "/myBids",
-                Component: Mybids
+                element: <PrivetRout> <Mybids /> </PrivetRout>
             },
             {
                 path: "/createProduct",
-                Component: CreateProduct
+                element: <PrivetRout> <CreateProduct /> </PrivetRout>
             },
             {
                 path: "/registration",

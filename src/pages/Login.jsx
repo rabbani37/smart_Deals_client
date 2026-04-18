@@ -1,22 +1,26 @@
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate, useNavigation } from 'react-router';
 import { AuthContext } from '../context/ContextCreateComponent';
 import useAuthH from '../hooks/useAuthH';
 
 
 const Login = () => {
-   const {googleLoginIn} = useAuthH()
+    const { googleLoginIn, } = useAuthH();
+
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleGoogleLogin = () => {
         googleLoginIn()
             .then((result) => {
                 const user = result.user;
+                navigate(location.state ? location.state : "/")
                 console.log(user)
 
             }).catch((error) => {
                 console.log(error)
             })
     }
-   
+
 
     return (
         <div>

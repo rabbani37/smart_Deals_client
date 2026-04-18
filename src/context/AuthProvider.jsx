@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './ContextCreateComponent';
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
 import auth from '../config/firebase.config';
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
 
-    console.log(user,loading)
+    console.log(user, loading)
 
     const googleProvider = new GoogleAuthProvider();
 
@@ -16,24 +16,30 @@ const AuthProvider = ({ children }) => {
 
 
     const googleLoginIn = () => {
-        setLoading(true)
+        setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
-
+    const LogOut = () => {
+        return signOut(auth);
+    }
 
 
     useEffect(() => {
         const unSebscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
                 setUser(currentUser);
-                setLoading(false)
+                setLoading(false);
             }
             else {
-                console.log("User Sign Out")
+                setUser();
+                setLoading(false);
+                console.log("User Sign Out");
+
             }
 
             return () => {
-                unSebscribe()
+                unSebscribe();
+
             }
         })
     }, [])
@@ -43,7 +49,8 @@ const AuthProvider = ({ children }) => {
         user,
         setUser,
         loading,
-        googleLoginIn
+        googleLoginIn,
+        LogOut
     }
 
     return (

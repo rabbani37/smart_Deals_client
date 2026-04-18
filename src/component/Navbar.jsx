@@ -4,12 +4,12 @@ import useAuthH from "../hooks/useAuthH";
 
 const Navbar = () => {
 
-    const { user } = useAuthH()
+    const { user, LogOut,setUser } = useAuthH()
 
     const handleLogOut = () => {
-        console.log("Yes LogOut")
+        LogOut()
     }
-
+    console.log(user)
 
     const navList = <>
         <li className="">
@@ -63,11 +63,11 @@ const Navbar = () => {
 
                 {
                     user ?
-                        <div className="dropdown dropdown-end mr-5 p-1 bg-primary rounded-full">
+                        <div className="dropdown dropdown-end mr-5 p-0.75 bg-primary rounded-full">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-16 rounded-full">
                                     <img
-                                        alt="Tailwind CSS Navbar component"
+                                        alt={`User photo`}
                                         src={user.photoURL} />
                                 </div>
                             </div>
@@ -76,21 +76,14 @@ const Navbar = () => {
                                 className="menu  menu-lg dropdown-content  rounded-box z-1 mt-3  p-2 shadow-2xl ">
                                 <li className="bg-primary btn btn-outline  text-white font-bold "><Link
                                     onClick={handleLogOut} className="active:bg-transparent text-white bg-transparent">Logout</Link></li>
+                                    <li>{user.displayName}</li>
                             </ul>
                         </div>
                         :
                         <NavLink to={'/login'} className="bg-primary btn btn-outline text-xl  text-white font-bold">Login</NavLink>
                 }
 
-                {/* <NavLink to={'/login'} className={({ isActive }) => isActive ? "bg-primary btn btn-outline  text-white font-bold" : "font-bold btn btn-outline border border-purple-500 text-primary "}>Login</NavLink> */}
-
             </div>
-
-
-
-
-
-            {/* <NavLink to={'/registration'} className={({ isActive }) => isActive ? "bg-primary btn btn-outline  text-white font-bold" : "font-bold btn btn-outline border border-purple-500 text-primary"}>Register</NavLink> */}
         </div>
 
     );
