@@ -1,10 +1,10 @@
-import { Link, useLocation, useNavigate,  } from 'react-router';
+import { Link, useLocation, useNavigate, } from 'react-router';
 import { AuthContext } from '../context/ContextCreateComponent';
 import useAuthH from '../hooks/useAuthH';
 
 
 const Login = () => {
-    const { googleLoginIn,setUser } = useAuthH();
+    const { googleLoginIn, setUser } = useAuthH();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -13,6 +13,21 @@ const Login = () => {
         googleLoginIn()
             .then((result) => {
                 const user = result.user;
+
+                const newUser = {
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL
+                }
+
+                fetch("http://localhost:3000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(newUser)
+                })
+
                 setUser(user)
                 navigate(location.state ? location.state : "/")
 

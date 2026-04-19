@@ -8,7 +8,7 @@ const Banner = () => {
 
     const [index, setIndex] = useState(0)
     const images = [
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f", // freelance team
+        // "https://images.unsplash.com/photo-1522202176988-66273c2fd55f", // freelance team
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d", // online marketplace
         "https://images.unsplash.com/photo-1492724441997-5dc865305da7", // laptop work
     ];
@@ -37,7 +37,7 @@ const Banner = () => {
                     </h1>
 
                     <p className="text-gray-200 mb-6">
-                        Discover services, jobs, and local deals easily in one place.
+                        Discover services,  and local deals easily in one place.
                     </p>
 
                     {/* search */}
@@ -55,7 +55,7 @@ const Banner = () => {
                     {/* buttons */}
                     <div className="flex gap-4 justify-center">
                         <button className="px-6 py-2 rounded btn bg-primary  text-white">
-                            Browse Jobs
+                            Browse Priducts
                         </button>
                         <button className="px-6 py-2 rounded btn btn-outline ">
                             Post Ad
