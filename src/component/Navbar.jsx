@@ -4,12 +4,12 @@ import useAuthH from "../hooks/useAuthH";
 
 const Navbar = () => {
 
-    const { user, LogOut,setUser } = useAuthH()
+    const { user, LogOut } = useAuthH()
 
     const handleLogOut = () => {
         LogOut()
     }
-    console.log(user)
+  
 
     const navList = <>
         <li className="">

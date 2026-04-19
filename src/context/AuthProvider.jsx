@@ -7,8 +7,6 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
 
-    console.log(user, loading)
-
     const googleProvider = new GoogleAuthProvider();
 
 
@@ -33,7 +31,7 @@ const AuthProvider = ({ children }) => {
             else {
                 setUser();
                 setLoading(false);
-                console.log("User Sign Out");
+                console.log("SignOut User");
 
             }
 

@@ -1,10 +1,10 @@
-import { Link, useLocation, useNavigate, useNavigation } from 'react-router';
+import { Link, useLocation, useNavigate,  } from 'react-router';
 import { AuthContext } from '../context/ContextCreateComponent';
 import useAuthH from '../hooks/useAuthH';
 
 
 const Login = () => {
-    const { googleLoginIn, } = useAuthH();
+    const { googleLoginIn,setUser } = useAuthH();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -13,8 +13,8 @@ const Login = () => {
         googleLoginIn()
             .then((result) => {
                 const user = result.user;
+                setUser(user)
                 navigate(location.state ? location.state : "/")
-                console.log(user)
 
             }).catch((error) => {
                 console.log(error)
@@ -24,7 +24,7 @@ const Login = () => {
 
     return (
         <div>
-            <div className="h-screen flex items-center justify-center bg-gray-100">
+            <div className="min-h-screen flex items-center justify-center bg-gray-100">
                 <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-lg">
 
                     <p className="text-2xl font-semibold text-center mb-2">Please Login </p>

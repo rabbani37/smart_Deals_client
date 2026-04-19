@@ -9,6 +9,7 @@ import MyProducts from "../pages/MyProducts";
 import Mybids from "../pages/Mybids";
 import CreateProduct from "../pages/CreateProduct";
 import PrivetRout from "./PrivetRout";
+import LoadScreen from "../component/LoadScreen";
 
 export const router = createBrowserRouter([
     {
